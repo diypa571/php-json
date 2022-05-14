@@ -15,12 +15,13 @@ your services will, receive a purchase order and from a set of rules, restock ar
 into our warehouse.
 Since this service should be triggered by a purchase on a web site, you will have to
 write some code to mock the actual purchasing.
-Pseudo code for the assignment:
-resetStock(initialStock);
-forEachOrder
-purchase(order);
-refillStock();
-finish();
+# 
+#  Pseudo code for the assignment:
+ resetStock(initialStock);
+ forEachOrder
+ purchase(order);
+ refillStock();
+ finish();
 /* This represents setting the current level of the warehouse */
 /* This is the purchase on the web shop */
 /* This is the logic to refill the warehouse */
