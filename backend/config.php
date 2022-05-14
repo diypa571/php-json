@@ -25,8 +25,27 @@ public function getData() {
 	}
 	// Här returneras  data i json format
 	return json_decode(file_get_contents(__DIR__ . "/" . DATA_SOURCE), true);
+} // Slut av getData Funktionen
+
+
+
+
+public function addCart() {
+  // Lägg varan i kundvagn
+	   $cartElem = & $_SESSION['cart'][$_POST['productIndex']];
+	   if (!isset($cartElem)) {
+	     $cartElem = 0;
+	   }
+
+	  $cartElem++;
+
 }
 
+
+
+public function deleteCart() {
+	unset($_SESSION['cart'][$_POST['remove']]);
+}
 
 
 
