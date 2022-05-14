@@ -1,6 +1,6 @@
 <?php
 require "./backend/config.php";
-$inStock = get_db()['inStock'];
+$inStock = getData()['inStock'];
  ?>
 
 
