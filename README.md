@@ -1,5 +1,5 @@
 # php-json-test
-# I will keep this  exercise private and will be removed after the task is done!
+# I will keep this  exercise private and will remove it after the task is done!
 
 In this exercise we would like you to pretend this is a real life, professional (even
 though it’s not), assignment so that we can review your skills.
