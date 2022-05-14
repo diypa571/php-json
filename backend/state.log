@@ -1,0 +1,16 @@
+--------- CALL DATA ROUTE ---------
+inStock(1 => 1, 2 => 8, 3 => 35, 4 => 1)
+--------- CALL DATA ROUTE ---------
+inStock(1 => 1, 2 => 8, 3 => 35, 4 => 1)
+--------- CALL purchase ROUTE ---------
+inStock(1 => 1, 2 => 8, 3 => 35, 4 => 1)
+purchase(Product 2 => 4)
+purchase: ****Order 3****
+inStock(1 => 1, 2 => 7, 3 => 35, 4 => 1)
+--------- CALL DATA ROUTE ---------
+inStock(1 => 1, 2 => 7, 3 => 35, 4 => 1)
+--------- CALL DATA ROUTE ---------
+inStock(1 => 1, 2 => 7, 3 => 35, 4 => 1)
+--------- CALL purchase ROUTE ---------
+inStock(1 => 1, 2 => 7, 3 => 35, 4 => 1)
+purchase: probably bad request body/format, no good orders!
