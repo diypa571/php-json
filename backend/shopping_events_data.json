@@ -1,0 +1,129 @@
+{
+	"inStock" : [
+		{
+			"articleId" : "1",
+			"quantity"  : "10"
+		},
+		{
+			"articleId" : "2",
+			"quantity"  : "43"
+		},
+		{
+			"articleId" : "3",
+			"quantity"  : "22"
+		},
+		{
+			"articleId" : "4",
+			"quantity"  : "3"
+		}
+	],
+	"orders": 
+		[{
+			"orderId" : "1",
+			"orderRows" : [
+				{
+					"articleId" : "1",
+					"quantity"  : "1"
+				},
+				{
+					"articleId" : "2",
+					"quantity"  : "3"
+				}]
+			
+		},
+		{
+			"orderId" : "2",
+			"orderRows" : [
+				{
+					"articleId" : "2",
+					"quantity"  : "4"
+				},
+				{
+					"articleId" : "3",
+					"quantity"  : "15"
+				}]
+			
+		},
+		{
+			"orderId" : "3",
+			"orderRows" : [
+				{
+					"articleId" : "4",
+					"quantity"  : "5"
+				},
+				{
+					"articleId" : "1",
+					"quantity"  : "17"
+				}]
+			
+		},
+		{
+			"orderId" : "4",
+			"orderRows" : [
+				{
+					"articleId" : "1",
+					"quantity"  : "9"
+				},
+				{
+					"articleId" : "2",
+					"quantity"  : "36"
+				},
+				{
+					"articleId" : "3",
+					"quantity"  : "4"
+				}]
+			
+		},
+		{
+			"orderId" : "5",
+			"orderRows" : [
+				{
+					"articleId" : "2",
+					"quantity"  : "36"
+				},
+				{
+					"articleId" : "3",
+					"quantity"  : "4"
+				}]
+			
+		},
+		{
+			"orderId" : "6",
+			"orderRows" : [
+				{
+					"articleId" : "4",
+					"quantity"  : "2"
+				},
+				{
+					"articleId" : "1",
+					"quantity"  : "1"
+				}]
+			
+		},
+		{
+			"orderId" : "7",
+			"orderRows" : [
+				{
+					"articleId" : "4",
+					"quantity"  : "1"
+				},
+				{
+					"articleId" : "3",
+					"quantity"  : "5"
+				}]
+			
+		},
+		{
+			"orderId" : "8",
+			"orderRows" : [
+				{
+					"articleId" : "3",
+					"quantity"  : "36"
+				},
+				{
+					"articleId" : "4",
+					"quantity"  : "3"
+				}]
+			
+		}]
+}
