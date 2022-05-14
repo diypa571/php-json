@@ -4,7 +4,7 @@
  * Date: 15 May, 2022
  */
 
-class MyStock
+class TheStack
 {
     private $database = [
         "stock" => [],
@@ -193,56 +193,56 @@ class MyStock
     }
 }
 
-$mystock = new MyStock();
-$mystock->readDatabase();
+$TheStack = new TheStack();
+$TheStack->readDatabase();
 
 // Router
 //// Set default route
 if (!isset($_GET["route"])) $_GET["route"] = "data";
 
 if ($_GET["route"] === "data") {
-    $mystock->appendLog("--------- CALL DATA ROUTE ---------");
-    $mystock->appendLog($mystock->logStock());
+    $TheStack->appendLog("--------- CALL DATA ROUTE ---------");
+    $TheStack->appendLog($TheStack->logStock());
 
     print json_encode([
         "status"=>0,
-        "data" => $mystock->getDatabase()
+        "data" => $TheStack->getDatabase()
     ]);
 }
 else if ($_GET["route"] === "purchase") {
-    $mystock->appendLog("--------- CALL purchase ROUTE ---------");
-    $mystock->appendLog($mystock->logStock());
+    $TheStack->appendLog("--------- CALL purchase ROUTE ---------");
+    $TheStack->appendLog($TheStack->logStock());
 
     $data = file_get_contents('php://input');
     $obj = json_decode($data, true);
 
     if (is_array($obj)) {
-        $res = $mystock->submitOrder($obj);
+        $res = $TheStack->submitOrder($obj);
 
         if ($res["good"] === 0) {
-            $mystock->appendLog("purchase: no good orders!");
+            $TheStack->appendLog("purchase: no good orders!");
             print json_encode([
                 "status" => 0
             ]);
         } else {
-            $mystock->appendLog("purchase: ****Order ". $res["order_id"]  ."****");
+            $TheStack->appendLog("purchase: ****Order ". $res["order_id"]  ."****");
 
             print json_encode([
                 "status" => 1,
             ]);
 
-            $mystock->appendLog($mystock->logStock());
+            $TheStack->appendLog($TheStack->logStock());
         }
     }
     else {
-        $mystock->appendLog("purchase: probably bad request body/format, no good orders!");
+        $TheStack->appendLog("purchase: probably bad request body/format, no good orders!");
         print json_encode([
             "status"=>0
         ]);
     }
 }
 else {
-    $mystock->appendLog("--------- CALL BAD ROUTE ---------");
+    $TheStack->appendLog("--------- CALL BAD ROUTE ---------");
     http_response_code(404);
     print json_encode([
         "status" => 404
@@ -250,19 +250,19 @@ else {
 }
 
 // Test (Development)
-// $mystock->readDatabase();
-// $mystock->showDatabase();
-// $mystock->submitOrder([
+// $TheStack->readDatabase();
+// $TheStack->showDatabase();
+// $TheStack->submitOrder([
 
 // ]);
-// $mystock->showDatabase();
-// $mystock->saveDatabase();
+// $TheStack->showDatabase();
+// $TheStack->saveDatabase();
 
-// var_dump($mystock->getStockQuantity(1));
-// var_dump($mystock->getStockQuantity(2));
-// var_dump($mystock->getStockQuantity(3));
-// var_dump($mystock->getStockQuantity(4));
-// var_dump($mystock->getStockQuantity(40));
+// var_dump($TheStack->getStockQuantity(1));
+// var_dump($TheStack->getStockQuantity(2));
+// var_dump($TheStack->getStockQuantity(3));
+// var_dump($TheStack->getStockQuantity(4));
+// var_dump($TheStack->getStockQuantity(40));
 
 // Finally, save new database to the file!
-$mystock->saveDatabase();
+$TheStack->saveDatabase();
