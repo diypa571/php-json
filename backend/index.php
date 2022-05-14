@@ -131,7 +131,7 @@ class TheStack
                     $balance = $this->getStockQuantity($product_id);
                     $has_error = false;
 
-                    // It's not possible to buy more then the balance (for all products/stock)
+                    // It's not possible to buy more than the quantity
                     if ($quantity > $balance) {
                         // continue; // Skip
                         $has_error = true;
