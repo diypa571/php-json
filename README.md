@@ -13,17 +13,17 @@
 # I will keep this  exercise private and will remove it after the task is done!
 
 In this exercise we would like you to pretend this is a real life, professional (even
-though it’s not), assignment so that we can review your skills.
+though it’s not), assignment so that we can review your skills.  
 After you have completed one or more of the below objectives, please send us the
-result back (within 72 hours).
+result back (within 72 hours).  
 Hint: Deadlines are important to us!
 Hint: We have powerful (but sometimes stupid) anti-spam and virus filters.
 Hint: We like GitHub and other such places but we don’t want your code to be
-shared with other potential candidates.
-Assignment Description
+shared with other potential candidates.  
+Assignment Description  
 The task is to build a backend purchase service that fills up stock when needed. Thus
 your services will, receive a purchase order and from a set of rules, restock articles
-into our warehouse.
+into our warehouse.  
 Since this service should be triggered by a purchase on a web site, you will have to
 write some code to mock the actual purchasing.
 # 
