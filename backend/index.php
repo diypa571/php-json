@@ -18,9 +18,9 @@ class TheStack
         file_put_contents($this->log_file, trim($line)."\n", FILE_APPEND);
     }
 
-    public function logOrder(int $product_id, int $amount) : string
+    public function logOrder(int $product_id, int $quantity) : string
     {
-        return "purchase(Product $product_id => $amount)";
+        return "purchase(Product $product_id => $quantity)";
     }
 
     public function logStock() : string
@@ -28,8 +28,8 @@ class TheStack
         $stocks = "";
 
         foreach ($this->database["stock"] as $stock) {
-            if ($stock["amount"] > 0) {
-                $stocks .= $stock["productId"] . " => " . $stock["amount"] . ", ";
+            if ($stock["quantity"] > 0) {
+                $stocks .= $stock["articleId"] . " => " . $stock["quantity"] . ", ";
             }
         }
 
@@ -80,20 +80,20 @@ class TheStack
     public function getStockIndex(int $product_id) :  int
     {
         foreach($this->database["stock"] as $stock_index => $stock) {
-            if ($stock["productId"] == $product_id) {
+            if ($stock["articleId"] == $product_id) {
                 return $stock_index; // So, auto-break and end of the function!
             }
         }
-        return null; // Mean: we not have this product in the STOCK!
+        return null; // When we dont have the item
     }
 
     public function getStockQuantity(int $product_id) : int
     {
         $index = $this->getStockIndex($product_id);
         if ($index !== null) {
-            return $this->database["stock"][$index]["amount"];
+            return $this->database["stock"][$index]["quantity"];
         }
-        return 0; // Mean: we not have this product in STOCK!
+        return 0; // We not have this product in STOCK!
     }
 
     private function updateStockQuantity(int $product_id, int $new_quantity)
@@ -101,7 +101,7 @@ class TheStack
         $index = $this->getStockIndex($product_id);
         if ($index === null) return null;
 
-        $this->database["stock"][$index]["amount"] = $new_quantity;
+        $this->database["stock"][$index]["quantity"] = $new_quantity;
     }
 
     private function appendStockQuantity(int $product_id, int $append_quantity)
@@ -111,7 +111,7 @@ class TheStack
 
         $balance = $this->getStockQuantity($product_id);
 
-        $this->database["stock"][$index]["amount"] = $balance + $append_quantity;
+        $this->database["stock"][$index]["quantity"] = $balance + $append_quantity;
     }
 
     public function submitOrder(array $pairs) : array
@@ -123,28 +123,28 @@ class TheStack
         foreach ($pairs as $pair) {
             // Only check if and only if $pair is an array and has excatly two value.
             if (is_array($pair) && count($pair) === 2) {
-                // Only check if and only if `amount` is positive
+                // Only check if and only if `quantity` is positive
                 if ($pair[1] > 0) {
                     $product_id = (int) $pair[0];
-                    $amount = (int) $pair[1];
+                    $quantity = (int) $pair[1];
 
                     $balance = $this->getStockQuantity($product_id);
                     $has_error = false;
 
                     // It's not possible to buy more then the balance (for all products/stock)
-                    if ($amount > $balance) {
+                    if ($quantity > $balance) {
                         // continue; // Skip
                         $has_error = true;
                     }
 
                     // Rule D
                     if ($product_id === 4) {
-                        // We not decreasing the balance, so the decreasing is same as old.
+                        //
                     }
 
                     // Rule C
                     else if ($product_id === 3) {
-                        $this->updateStockQuantity($product_id, $balance - $amount);
+                        $this->updateStockQuantity($product_id, $balance - $quantity);
 
                         if ($balance < 20) {
                             $this->appendStockQuantity($product_id, 20);
@@ -153,7 +153,7 @@ class TheStack
 
                     // Rule B
                     else if ($product_id === 2) {
-                        $this->updateStockQuantity($product_id, $balance - $amount);
+                        $this->updateStockQuantity($product_id, $balance - $quantity);
 
                         if ($balance < 10) {
                             $this->appendStockQuantity($product_id, 3);
@@ -162,15 +162,15 @@ class TheStack
 
                     // Rule A
                     else if ($product_id === 1) {
-                        $this->updateStockQuantity($product_id, $balance - $amount);
+                        $this->updateStockQuantity($product_id, $balance - $quantity);
                     }
 
                     if ($has_error === false) {
-                        $this->appendLog($this->logOrder($product_id, $amount));
+                        $this->appendLog($this->logOrder($product_id, $quantity));
 
                         $order_products[] = [
-                            "productId" => $product_id, // Cast to int, not float and not string code
-                            "amount" => $amount // Cast to int, not float
+                            "articleId" => $product_id, // Cast to int, not float and not string code
+                            "quantity" => $quantity // Cast to int, not float
                         ];
                     }
                 }
@@ -264,5 +264,5 @@ else {
 // var_dump($TheStack->getStockQuantity(4));
 // var_dump($TheStack->getStockQuantity(40));
 
-// Finally, save new database to the file!
+// Finally, save data to the file!
 $TheStack->saveDatabase();
