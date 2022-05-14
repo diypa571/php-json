@@ -1,7 +1,7 @@
-Testing
-?route=data
-POST
-[2,2]
+ Testing
+ ?route=data
+ POST
+ [2,2]
 
 # php-json-test
 # I will keep this  exercise private and will remove it after the task is done!
