@@ -1,21 +1,37 @@
-
 <?php
-// Skapar en konstant för json filen
-define("DATA_SOURCE", "demo_data.json");
+Class Products
+{
 
-// Skapas en function som returnerar data som konverteras till PHP array
-function getData() {
-    // Kontrollera om filen existerar
-    if (!file_exists(__DIR__ . "/" . DATA_SOURCE)) {
-      // Filen existerar inte, skapa och skriva i filen
-      $dataInit = [
-        'inStock' => [],
-      ];
 
-      //  Funktionen file_put_contents för att skriva
-    file_put_contents(__DIR__ . "/" . DATA_SOURCE, json_encode($dataInit, JSON_PRETTY_PRINT));
-    }
-  
+private $dataFile ='demo_data.json';
+
+// Konstruktor funktion
+public function __Construct()
+{
+	 return define("DATA_SOURCE", $this->dataFile);
+}
+
+
+//  Klass metod som returnerar data som en PHP Array
+public function getData() {
+	// Kontrollera om filen existerar
+	if (!file_exists(__DIR__ . "/" . DATA_SOURCE)) {
+	// Filen existerar inte, skapa och skriva i filen
+	$dataInit = [
+	'inStock' => [],
+	];
+
+	//  Funktionen file_put_contents för att skriva
+	file_put_contents(__DIR__ . "/" . DATA_SOURCE, json_encode($dataInit, JSON_PRETTY_PRINT));
+	}
 	// Här returneras  data i json format
 	return json_decode(file_get_contents(__DIR__ . "/" . DATA_SOURCE), true);
 }
+
+
+
+
+}
+
+
+?>
