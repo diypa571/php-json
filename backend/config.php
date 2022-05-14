@@ -2,7 +2,6 @@
 Class Products
 {
 
-
 private $dataFile ='demo_data.json';
 
 // Konstruktor funktion
