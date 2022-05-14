@@ -1,10 +1,13 @@
-###### Testing
+######  This service, we have three main files.. db.json,index.php and state.log
 ###### ?route=data
 ###### POST
 ###### [2,2]
  
- RestMan is good for testing...
+ ###### RestMan is good for testing...
  
+###### 
+
+
 
 # php-json-test
 # I will keep this  exercise private and will remove it after the task is done!
