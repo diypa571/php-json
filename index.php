@@ -1,13 +1,13 @@
 <?php
-require "./backend/config.php";
-$inStock = getData()['inStock'];
+include("./backend/config.php"); // Klassen inkluderas
+$objProducts = new Products(); // Ett objekt skapas
+$inStock = $objProducts->getData()['inStock'];
  ?>
-
+ 
 
 <?php foreach ($inStock as $key => $product): ?>
-<?php echo " Product ID " .  $product['articleId'] . " " . "| " . " Quantity " . $product['quantity'] .  " Price " . $product['price'] ?> <br />
+<?php echo " Product ID " .  $product['articleId'] . " " . "| " . " Quantity " . $product['quantity'] .  " Price " . $product['price'] ?> <br>
 <?php endforeach; ?>
-
 
 <?php
 /*
