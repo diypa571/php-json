@@ -1,6 +1,6 @@
 
 <?php
-// Skapar en konstant för data json
+// Skapar en konstant för json filen
 define("DATA_SOURCE", "demo_data.json");
 
 // Skapas en function som returnerar data som konverteras till PHP array
