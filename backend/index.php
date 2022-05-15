@@ -15,27 +15,33 @@ class TheStack
     ];
     // A private reference for the json file...
     private $database_file = "db.json";
+    // A private reference for the state.log file
     private $log_file = "state.log";
 
     // A public metod to append a string, this for the log file
+    // The metod has a parameter,which is a string data type
     public function appendLog(string $line)
-    {
+    {   // Using the file_put function to write the parameter value to the log file
         file_put_contents($this->log_file, trim($line)."\n", FILE_APPEND);
     }
 
-    // A metod for Log orders
+    // A metod for ordering
+    // The functions has two int parameters
+    // The first param is for the ArticleId and the second quantity
     public function logOrder(int $product_id, int $quantity) : string
     {
-        return "purchase(Product $product_id => $quantity)";
+        return "purchase($product_id,$quantity)";
+
     }
 
-    // A metod for the stock
+    // A metod to
     public function logStock() : string
     {
         $stocks = "";
         // A loop for looping through the data
         foreach ($this->database["stock"] as $stock) {
-            if ($stock["quantity"] < 0) {
+          // Check of quantity is less than 9, if so add 0
+            if ($stock["quantity"] <= 9) {
                 $stocks .=  "0".$stock["quantity"] . ", ";
             }
             else {
@@ -161,13 +167,13 @@ class TheStack
                     }
 
                     // Rule D
-                    // The rules are not very clear to understand
-
-                    if ($product_id === 4) {
+                    // Article 4 – order more for every order, same amount that was purchased
+                  if ($product_id === 4) {
                   $this->appendStockQuantity($product_id, $quantity);
                     }
 
                     // Rule C
+                    // Article 3 – order 20 more when stock is below 20
                     else if ($product_id === 3) {
                         $this->updateStockQuantity($product_id, $balance - $quantity);
 
@@ -177,6 +183,7 @@ class TheStack
                     }
 
                     // Rule B
+                    // Article 2 – order 3 new only when Article 1 has less than 10 in stock
                     else if ($product_id === 2) {
                         $this->updateStockQuantity($product_id, $balance - $quantity);
 
@@ -186,8 +193,12 @@ class TheStack
                     }
 
                     // Rule A
+                    // Article 1 – order 10 more when stock is empty
                     else if ($product_id === 1) {
                         $this->updateStockQuantity($product_id, $balance - $quantity);
+                        if ($balance < 1) {
+                            $this->appendStockQuantity($product_id, 10);
+                        }
                     }
 
                     if ($has_error === false) {
@@ -227,6 +238,7 @@ $TheStack->readDatabase();
 if (!isset($_GET["route"])) $_GET["route"] = "data";
 
 if ($_GET["route"] === "data") {
+  // If the Get request
     $TheStack->appendLog("--------- CALL DATA ROUTE ---------");
     $TheStack->appendLog($TheStack->logStock());
 
@@ -236,13 +248,17 @@ if ($_GET["route"] === "data") {
     ]);
 }
 else if ($_GET["route"] === "purchase") {
+
     $TheStack->appendLog("--------- CALL purchase ROUTE ---------");
     $TheStack->appendLog($TheStack->logStock());
-
+    // Receive the json post with php
     $data = file_get_contents('php://input');
+    // Convert the data to a php array
     $obj = json_decode($data, true);
 
+      // Check of the obj is an array
     if (is_array($obj)) {
+      // call the the function for submit the Order
         $res = $TheStack->submitOrder($obj);
 
         if ($res["good"] === 0) {
@@ -251,7 +267,7 @@ else if ($_GET["route"] === "purchase") {
                 "status" => 0
             ]);
         } else {
-            $TheStack->appendLog(" ***Order ". $res["order_id"]  ." ****");
+            $TheStack->appendLog(" ***Order ". $res["order_id"]  ." *** ");
 
             print json_encode([
                 "status" => 1,
