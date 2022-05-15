@@ -1,4 +1,17 @@
-######  This service, we have three main files.. db.json,index.php and state.log
+##   Hej! Det finns fyra filer. (db.json, index.php, state.log,with_tests.php)
+##  Från början tänkte jag fel, tänkte skapa en UI för API tjänsten med sessions variabler, en kundvagn att kunden kan lägga till sina varor i kundvagn.
+##  Men sedan märkte jag att det behövs inte. Testet som jag uppfattat nu att skapa en API tjänst för att fylla på json filen med antal antal varor, det beroende på varan och antal varor som kundeerna handlar.
+  
+ ## index filen innehåller funktionerna, metoderna som används för API-tjänsten.
+ ## När det gäller db.json, jag tänker en mysql data som innehåller, har försökt att inte ändra mycket i filen.
+ ## Filen state.log, i den lagras data beroende på den API request som görs.
+  
+
+
+db.json Update db.json 9 hours ago index.php Update index.php 7 minutes ago state.log Update state.log 1 hour ago with_tests.php
+
+
+
 ###### ?route=data
 ###### ?route=purchase
 ###### POST
