@@ -116,7 +116,8 @@ class TheStack
         return 0; // We not have this   inSTOCK!
     }
 
-    
+    // This metod for updating the quantity
+    // The metod has two int parameters,one is for the product id one is for the new quanity
     private function updateStockQuantity(int $product_id, int $new_quantity)
     {
         $index = $this->getStockIndex($product_id);
@@ -125,6 +126,7 @@ class TheStack
         $this->database["stock"][$index]["quantity"] = $new_quantity;
     }
 
+    // This metod is for append the new data to the json file
     private function appendStockQuantity(int $product_id, int $append_quantity)
     {
         $index = $this->getStockIndex($product_id);
@@ -135,6 +137,7 @@ class TheStack
         $this->database["stock"][$index]["quantity"] = $balance + $append_quantity;
     }
 
+      // This metod is for submiting an order
     public function submitOrder(array $pairs) : array
     {
         $order_id = count($this->database["orders"]);
@@ -151,14 +154,15 @@ class TheStack
 
                     $balance = $this->getStockQuantity($product_id);
                     $has_error = false;
-
-                    // It's not possible to buy more then the balance (for all products/stock)
+                    // It's not possible to buy more than the quanity available
                     if ($quantity > $balance) {
                         // continue; // Skip
                         $has_error = true;
                     }
 
                     // Rule D
+                    // The rules are not very clear to understand
+
                     if ($product_id === 4) {
                   $this->appendStockQuantity($product_id, $quantity);
                     }
@@ -218,7 +222,8 @@ $TheStack = new TheStack();
 $TheStack->readDatabase();
 
 // Router
-//// Set default route
+//  Set default route
+
 if (!isset($_GET["route"])) $_GET["route"] = "data";
 
 if ($_GET["route"] === "data") {
@@ -241,7 +246,7 @@ else if ($_GET["route"] === "purchase") {
         $res = $TheStack->submitOrder($obj);
 
         if ($res["good"] === 0) {
-            $TheStack->appendLog("purchase: no good orders!");
+            $TheStack->appendLog("Purchasing? No orders!");
             print json_encode([
                 "status" => 0
             ]);
@@ -256,7 +261,7 @@ else if ($_GET["route"] === "purchase") {
         }
     }
     else {
-        $TheStack->appendLog("purchase: probably bad request body/format, no good orders!");
+        $TheStack->appendLog("Purchasing? Probably bad request body/format");
         print json_encode([
             "status"=>0
         ]);
