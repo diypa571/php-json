@@ -6,6 +6,8 @@
 
 class TheStack
 {
+    
+    // Private members
     private $database = [
         "stock" => [],
         "orders" => []
@@ -13,20 +15,23 @@ class TheStack
     private $database_file = "db.json";
     private $log_file = "state.log";
 
+    // A function to appd data to the log file
     public function appendLog(string $line)
     {
         file_put_contents($this->log_file, trim($line)."\n", FILE_APPEND);
     }
 
+    // A function for log order
     public function logOrder(int $product_id, int $quantity) : string
     {
         return "purchase(Product $product_id => $quantity)";
     }
 
+    // A function for logStock
     public function logStock() : string
     {
         $stocks = "";
-
+// A loop for items in the json file
         foreach ($this->database["stock"] as $stock) {
             if ($stock["quantity"] < 0) {
                 $stocks .=  "0".$stock["quantity"] . ", ";
@@ -42,16 +47,20 @@ class TheStack
         return "inStock(". $stocks .")";
     }
 
+    // A function for showing data as array
     public function showDatabase() : void
     {
         print_r($this->database);
     }
 
+    
+    // A function to  print stock as array
     public function showDatabaseStock() : void
     {
         print_r($this->database["stock"]);
     }
 
+        // Print orders as array
     public function showDatabaseOrders() : void
     {
         print_r($this->database["orders"]);
@@ -62,21 +71,25 @@ class TheStack
         return $this->database;
     }
 
+    // A function to return orders
     public function getDatabaseOrders() : array
     {
         return $this->database["orders"];
     }
 
+    // A function to return stock
     public function getDatabaseStock() : array
     {
         return $this->database["stock"];
     }
 
+    // A function to put data, which will be json encoded
     public function saveDatabase()
     {
         return file_put_contents($this->database_file, json_encode($this->database));
     }
 
+    // A function that will 
     public function initDatabase(array $default)
     {
         if (is_array($default) && isset($default["stock"]) && isset($default["orders"])) {
