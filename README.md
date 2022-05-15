@@ -15,11 +15,11 @@
 ###### index.php?route=data
 ###### index.php?route=purchase
 ###### Handla med metoden POST
-###### [2,2]
+###### [[2,2]]
  
  ###### RestMan is good for testing...
  
-###### 
+###### with_test_cases.php?test
 
 
 
