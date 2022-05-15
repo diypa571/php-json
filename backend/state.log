@@ -1,2 +1,5 @@
---------- CALL DATA ROUTE ---------
-inStock(1, 2, 35, 11)
+--------- CALL purchase ROUTE ---------
+inStock(1, 8, 35, 1)
+purchase(2,2)
+***Order 5 ***
+inStock(1, 9, 35, 1)
