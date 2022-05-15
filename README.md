@@ -1,5 +1,6 @@
 ######  This service, we have three main files.. db.json,index.php and state.log
 ###### ?route=data
+###### ?route=purchase
 ###### POST
 ###### [2,2]
  
