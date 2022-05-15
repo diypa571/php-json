@@ -1,4 +1,4 @@
-######   Hej! Det finns fyra filer. (db.json, index.php, state.log,with_tests.php)
+######   Hej! Det finns fyra filer. (db.json, index.php, state.log,with_test_cases.php)
 ###### Från början tänkte jag fel, tänkte skapa en UI för API tjänsten med sessions variabler, en kundvagn att kunden kan lägga till sina varor i kundvagn.
 ######  Men sedan märkte jag att det behövs inte. Testet som jag uppfattat nu är att skapa en API tjänst för att fylla på json filen med antal ett antal varor, det beroende på varan och antal varor som kunderna handlar.
   
@@ -8,9 +8,8 @@
  
 
 
-
-db.json Update db.json 9 hours ago index.php Update index.php 7 minutes ago state.log Update state.log 1 hour ago with_tests.php
-
+###### Filen with_test_cases.php, den finns för att kunna testa! Det går att testa på följande sätt. URL: with_test_cases.php?test Det är viktigt att titta på filen state.log, för att success eller inte kommer det att lagras i state.log filen
+ 
 
 
 ###### index.php?route=data
