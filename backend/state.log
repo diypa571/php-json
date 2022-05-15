@@ -3,3 +3,215 @@ inStock(1, 8, 35, 1)
 purchase(2,2)
 ***Order 5 ***
 inStock(1, 9, 35, 1)
+--------- CALL purchase ROUTE ---------
+inStock(01, 9, 35, 01)
+purchase(2,2)
+***Order 6 ***
+inStock(01, 10, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(01, 10, 35, 01)
+purchase(2,2)
+***Order 7 ***
+inStock(01, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 8 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(0-1, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(0-2, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(0-3, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 9 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 10 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(09, 08, 35, 01)
+purchase(1,1)
+***Order 11 ***
+inStock(08, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(08, 08, 35, 01)
+purchase(1,1)
+***Order 12 ***
+inStock(07, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(07, 08, 35, 01)
+purchase(1,1)
+***Order 13 ***
+inStock(06, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(06, 08, 35, 01)
+purchase(1,1)
+***Order 14 ***
+inStock(05, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(05, 08, 35, 01)
+purchase(1,1)
+***Order 15 ***
+inStock(04, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(04, 08, 35, 01)
+purchase(1,1)
+***Order 16 ***
+inStock(03, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(03, 08, 35, 01)
+purchase(1,1)
+***Order 17 ***
+inStock(02, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(02, 08, 35, 01)
+purchase(1,1)
+***Order 18 ***
+inStock(01, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 19 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(09, 08, 35, 01)
+purchase(1,1)
+***Order 20 ***
+inStock(08, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(08, 08, 35, 01)
+purchase(1,1)
+***Order 21 ***
+inStock(07, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(07, 08, 35, 01)
+purchase(1,1)
+***Order 22 ***
+inStock(06, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(06, 08, 35, 01)
+purchase(1,1)
+***Order 23 ***
+inStock(05, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(05, 08, 35, 01)
+purchase(1,1)
+***Order 24 ***
+inStock(04, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(04, 08, 35, 01)
+purchase(1,1)
+***Order 25 ***
+inStock(03, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(03, 08, 35, 01)
+purchase(1,1)
+***Order 26 ***
+inStock(02, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(02, 08, 35, 01)
+purchase(1,1)
+***Order 27 ***
+inStock(01, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 28 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(09, 08, 35, 01)
+purchase(1,1)
+***Order 29 ***
+inStock(08, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(08, 08, 35, 01)
+purchase(1,1)
+***Order 30 ***
+inStock(07, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(07, 08, 35, 01)
+purchase(1,1)
+***Order 31 ***
+inStock(06, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(06, 08, 35, 01)
+purchase(1,1)
+***Order 32 ***
+inStock(05, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(05, 08, 35, 01)
+purchase(1,1)
+***Order 33 ***
+inStock(04, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(04, 08, 35, 01)
+purchase(1,1)
+***Order 34 ***
+inStock(03, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(03, 08, 35, 01)
+purchase(1,1)
+***Order 35 ***
+inStock(02, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(02, 08, 35, 01)
+purchase(1,1)
+***Order 36 ***
+inStock(01, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(01, 08, 35, 01)
+purchase(1,1)
+***Order 37 ***
+inStock(00, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(00, 08, 35, 01)
+Purchasing? No orders!
+--------- CALL purchase ROUTE ---------
+inStock(09, 08, 35, 01)
+purchase(1,1)
+***Order 38 ***
+inStock(08, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(08, 08, 35, 01)
+purchase(1,1)
+***Order 39 ***
+inStock(07, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(07, 08, 35, 01)
+purchase(1,1)
+***Order 40 ***
+inStock(06, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(06, 08, 35, 01)
+purchase(1,1)
+***Order 41 ***
+inStock(05, 08, 35, 01)
+--------- CALL purchase ROUTE ---------
+inStock(05, 08, 35, 01)
+purchase(1,1)
+***Order 42 ***
+inStock(04, 08, 35, 01)
