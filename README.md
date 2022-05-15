@@ -13,9 +13,9 @@ db.json Update db.json 9 hours ago index.php Update index.php 7 minutes ago stat
 
 
 
-###### ?route=data
-###### ?route=purchase
-###### POST
+###### index.php?route=data
+###### index.php?route=purchase
+###### Handla med metoden POST
 ###### [2,2]
  
  ###### RestMan is good for testing...
