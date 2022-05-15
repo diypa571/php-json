@@ -6,8 +6,7 @@
 
 class TheStack
 {
-    
-    // Private members
+
     private $database = [
         "stock" => [],
         "orders" => []
@@ -15,23 +14,20 @@ class TheStack
     private $database_file = "db.json";
     private $log_file = "state.log";
 
-    // A function to appd data to the log file
     public function appendLog(string $line)
     {
         file_put_contents($this->log_file, trim($line)."\n", FILE_APPEND);
     }
 
-    // A function for log order
     public function logOrder(int $product_id, int $quantity) : string
     {
         return "purchase(Product $product_id => $quantity)";
     }
 
-    // A function for logStock
     public function logStock() : string
     {
         $stocks = "";
-// A loop for items in the json file
+
         foreach ($this->database["stock"] as $stock) {
             if ($stock["quantity"] < 0) {
                 $stocks .=  "0".$stock["quantity"] . ", ";
@@ -47,20 +43,16 @@ class TheStack
         return "inStock(". $stocks .")";
     }
 
-    // A function for showing data as array
     public function showDatabase() : void
     {
         print_r($this->database);
     }
 
-    
-    // A function to  print stock as array
     public function showDatabaseStock() : void
     {
         print_r($this->database["stock"]);
     }
 
-        // Print orders as array
     public function showDatabaseOrders() : void
     {
         print_r($this->database["orders"]);
@@ -71,25 +63,21 @@ class TheStack
         return $this->database;
     }
 
-    // A function to return orders
     public function getDatabaseOrders() : array
     {
         return $this->database["orders"];
     }
 
-    // A function to return stock
     public function getDatabaseStock() : array
     {
         return $this->database["stock"];
     }
 
-    // A function to put data, which will be json encoded
     public function saveDatabase()
     {
         return file_put_contents($this->database_file, json_encode($this->database));
     }
 
-    // A function that will 
     public function initDatabase(array $default)
     {
         if (is_array($default) && isset($default["stock"]) && isset($default["orders"])) {
@@ -285,20 +273,6 @@ else {
     ]);
 }
 
-// Test (Development)
-// $mystock->readDatabase();
-// $mystock->showDatabase();
-// $mystock->submitOrder([
-
-// ]);
-// $mystock->showDatabase();
-// $mystock->saveDatabase();
-
-// var_dump($mystock->getStockQuantity(1));
-// var_dump($mystock->getStockQuantity(2));
-// var_dump($mystock->getStockQuantity(3));
-// var_dump($mystock->getStockQuantity(4));
-// var_dump($mystock->getStockQuantity(40));
 
 // Finally, save data to the file!
 $mystock->saveDatabase();
@@ -315,29 +289,30 @@ if($iscli || isset($_GET["test"])) {
       ],
       "orders" => [],
   ];
+
   $mystock->initDatabase($config);
 
   // Case 1
-  $mystock->submitOrder([[1, 5]]);
+  $mystock->submitOrder([[1, 1]]);
   if (count($mystock->getDatabaseOrders()) !== 1) {
-    print "Test failed!\n";
+      $mystock->appendLog("--------- Test Case 1 failed---");
   } else {
-    print "Test passed!\n";
+        $mystock->appendLog("--------- Test Case 1 passed!\n");
   }
 
   // Case 2
   $mystock->submitOrder([[2, 3]]);
   if (count($mystock->getDatabaseOrders()) !== 1) {
-    print "Test failed!\n";
+  $mystock->appendLog("--------- Test Case 2 failed---");
   } else {
-    print "Test passed!\n";
+        $mystock->appendLog("--------- Test Case 2 passed!\n");
   }
 
   // Case 3
   $mystock->submitOrder([[2, 2]]);
   if (count($mystock->getDatabaseOrders()) !== 2) {
-    print "Test failed!\n";
+  $mystock->appendLog("--------- Test Case 3 failed---");
   } else {
-    print "Test passed!\n";
+        $mystock->appendLog("--------- Test Case 3 passed!\n");
   }
 }
