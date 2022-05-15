@@ -4,29 +4,36 @@
  * Date: 15 May, 2022
  */
 
+// Creating class
 class TheStack
 {
+
+  // Declare private data memebers
     private $database = [
         "stock" => [],
         "orders" => []
     ];
+    // A private reference for the json file...
     private $database_file = "db.json";
     private $log_file = "state.log";
 
+    // A public metod to append a string, this for the log file
     public function appendLog(string $line)
     {
         file_put_contents($this->log_file, trim($line)."\n", FILE_APPEND);
     }
 
+    // A metod for Log orders
     public function logOrder(int $product_id, int $quantity) : string
     {
         return "purchase(Product $product_id => $quantity)";
     }
 
+    // A metod for the stock
     public function logStock() : string
     {
         $stocks = "";
-
+        // A loop for looping through the data
         foreach ($this->database["stock"] as $stock) {
             if ($stock["quantity"] < 0) {
                 $stocks .=  "0".$stock["quantity"] . ", ";
@@ -35,23 +42,28 @@ class TheStack
                   $stocks .=  $stock["quantity"] . ", ";
             }
         }
-
+        // Remove a predefined characters from the right side of a string
         $stocks = rtrim($stocks, ", ");
 
         if ($stocks === "") $stocks = "EMPTY";
+        // The metod will return the inStock data
         return "inStock(". $stocks .")";
     }
 
+
+    // A metod to show the data as array
     public function showDatabase()
     {
         print_r($this->database);
     }
 
+    // A metod to get the data, will return data
     public function getDatabase()
     {
         return $this->database;
     }
 
+    // A metod to put data, but in json encoded format
     public function saveDatabase()
     {
         return file_put_contents($this->database_file, json_encode($this->database));
@@ -80,6 +92,8 @@ class TheStack
         }
     }
 
+    // This function is for geting the Index
+    // The function has a parameter, which is an int value
     public function getStockIndex(int $product_id) :  int
     {
         foreach($this->database["stock"] as $stock_index => $stock) {
@@ -90,15 +104,19 @@ class TheStack
         return null; // When we dont have the item
     }
 
+    // This function is to get the quantity
+    // The functions has a parameter, this to get the right quanity for the Articleid
+
     public function getStockQuantity(int $product_id) : int
     {
         $index = $this->getStockIndex($product_id);
         if ($index !== null) {
             return $this->database["stock"][$index]["quantity"];
         }
-        return 0; // We not have this product inSTOCK!
+        return 0; // We not have this   inSTOCK!
     }
 
+    
     private function updateStockQuantity(int $product_id, int $new_quantity)
     {
         $index = $this->getStockIndex($product_id);
