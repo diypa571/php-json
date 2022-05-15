@@ -28,8 +28,11 @@ class TheStack
         $stocks = "";
 
         foreach ($this->database["stock"] as $stock) {
-            if ($stock["quantity"] > 0) {
-                $stocks .= $stock["articleId"] . " => " . $stock["quantity"] . ", ";
+            if ($stock["quantity"] < 0) {
+                $stocks .=  "0".$stock["quantity"] . ", ";
+            }
+            else {
+                  $stocks .=  $stock["quantity"] . ", ";
             }
         }
 
@@ -93,7 +96,7 @@ class TheStack
         if ($index !== null) {
             return $this->database["stock"][$index]["quantity"];
         }
-        return 0; // We not have this product in STOCK!
+        return 0; // We not have this product inSTOCK!
     }
 
     private function updateStockQuantity(int $product_id, int $new_quantity)
@@ -131,7 +134,7 @@ class TheStack
                     $balance = $this->getStockQuantity($product_id);
                     $has_error = false;
 
-                    // It's not possible to buy more than the quantity
+                    // It's not possible to buy more then the balance (for all products/stock)
                     if ($quantity > $balance) {
                         // continue; // Skip
                         $has_error = true;
@@ -225,7 +228,7 @@ else if ($_GET["route"] === "purchase") {
                 "status" => 0
             ]);
         } else {
-            $TheStack->appendLog("purchase: ****Order ". $res["order_id"]  ."****");
+            $TheStack->appendLog(" ***Order ". $res["order_id"]  ." ****");
 
             print json_encode([
                 "status" => 1,
