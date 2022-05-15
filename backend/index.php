@@ -142,7 +142,7 @@ class TheStack
 
                     // Rule D
                     if ($product_id === 4) {
-                        //
+                  $this->appendStockQuantity($product_id, $quantity);
                     }
 
                     // Rule C
