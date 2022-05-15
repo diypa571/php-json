@@ -1,0 +1,10 @@
+// Tests (test cases)
+$config = [
+    "stock" => [
+        ["productId":1,"amount":10],
+        ["productId":2,"amount":2],
+        ["productId":3,"amount":7],
+        ["productId":4,"amount":12]
+    ],
+    "orders" => [],
+];
