@@ -303,8 +303,26 @@ if($iscli || isset($_GET["test"])) {
       "orders" => [],
   ];
   $mystock->initDatabase($config);
+
+  // Case 1
   $mystock->submitOrder([[1, 5]]);
   if (count($mystock->getDatabaseOrders()) !== 1) {
+    print "Test failed!\n";
+  } else {
+    print "Test passed!\n";
+  }
+
+  // Case 2
+  $mystock->submitOrder([[2, 3]]);
+  if (count($mystock->getDatabaseOrders()) !== 1) {
+    print "Test failed!\n";
+  } else {
+    print "Test passed!\n";
+  }
+
+  // Case 3
+  $mystock->submitOrder([[2, 2]]);
+  if (count($mystock->getDatabaseOrders()) !== 2) {
     print "Test failed!\n";
   } else {
     print "Test passed!\n";
