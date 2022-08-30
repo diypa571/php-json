@@ -1,4 +1,4 @@
-Hej! Det finns fyra filer. (db.json, index.php, state.log,with_test_cases.php)
+Det finns fyra filer. (db.json, index.php, state.log,with_test_cases.php)
 Från början tänkte jag fel, tänkte skapa en UI för API tjänsten med sessions variabler, en kundvagn att kunden kan lägga till sina varor i kundvagn.
 Men sedan märkte jag att det behövs inte. Testet som jag uppfattat nu är att skapa en API tjänst för att fylla på json filen med antal ett antal varor, det beroende på varan och antal varor som kunderna handlar.
 index filen, den innehåller funktionerna, metoderna som används för API-tjänsten.
